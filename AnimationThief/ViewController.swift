@@ -7,14 +7,24 @@
 //
 
 import Cocoa
+import SpriteKit
+import GameplayKit
 
 class ViewController: NSViewController {
 
+    @IBOutlet var skView: SKView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+        let scene = SKScene(fileNamed: "GameScene")!
+        scene.scaleMode = .aspectFill
 
+        let view = skView!
+        view.presentScene(scene)
+        view.ignoresSiblingOrder = true
+        view.showsFPS = true
+        view.showsNodeCount = true
+    }
 }
 
